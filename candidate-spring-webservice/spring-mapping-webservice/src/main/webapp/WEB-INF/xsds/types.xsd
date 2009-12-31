@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.jaymen.com/cv/schemas/types"
+        xmlns:tns="http://www.jaymen.com/cv/schemas/types"
+        elementFormDefault="qualified">
+	
+	<xs:complexType name="Candidate">
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="phone" type="tns:PhoneNumber"/>
+			<xs:element name="email" type="tns:Email"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Organisation">
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="phone" type="tns:PhoneNumber"/>
+			<xs:element name="fax" type="tns:PhoneNumber"/>
+			<xs:element name="email" type="tns:Email"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Skill">
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer"/>
+			<xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="Employment">
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer"/>
+			<xs:element name="jobtitle" type="xs:string"/>
+			<xs:element name="startDate" type="xs:date"/>
+			<xs:element name="endDate" type="xs:date"/>
+			<xs:element name="candidate" type="tns:Candidate" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="organisation" type="tns:Organisation" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="skills" type="tns:Skill" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>	
+	
+	<xs:simpleType name="PhoneNumber">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="Email">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[\w\-]+@([\w\-]+\.)+[\w\-]+"/>
+		</xs:restriction>
+	</xs:simpleType>	
+</xs:schema>	

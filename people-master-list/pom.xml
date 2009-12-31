@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.jaymen.test</groupId>
+  <artifactId>people-master-list</artifactId>
+  <name>Master List of People</name>
+  <version>1.0.0</version>
+  <description>Write a program that builds a master list of people from three data files, then prints it to console, sorted in three different ways.
+
+Your program may only use the standard Java SE libraries; no other libraries may be used. Any version of Java is fine.
+
+If you choose to include unit tests with your submission, you may use the JUnit framework.
+
+I remember this program from a job application I sent in for a position in the United States, part of their hiring process involved taking an unattended coding test. It show a good usage of how to answer these types of applications test.</description>
+ <dependencies>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.4</version>
+  		<type>jar</type>
+  		<scope>test</scope>
+  	</dependency>
+  </dependencies>
+  <properties>
+  	<maven.compiler.source>1.6</maven.compiler.source>
+  	<maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+  </properties>
+</project>

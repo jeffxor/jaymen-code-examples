@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.jaymen.test</groupId>
+	<artifactId>dvd-store</artifactId>
+	<name>DVD Store Unattended Coding Test</name>
+	<version>1.0.0</version>
+	<description>This was part of the recruitment process for an organization in the United Kingdom. At the time it was the first one I had been given. The unattended coding test is an attempt to evaluate a number of developer skills and as well as the processes a developer uses.
+
+In this problem you are required to complete the implementation of the DvdService
+interface, a simple service that contains two methods.
+
+Reference implementations DvdRepository and the Dvd are included in the pack;
+any of the supplied files may be changed as you see fit.
+</description>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<properties>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+	</properties>
+</project>

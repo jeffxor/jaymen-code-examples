@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.jaymen.test</groupId>
+  <artifactId>document-classifier</artifactId>
+  <name>Document Classifier</name>
+  <version>1.0.0</version>
+  <description>You can find the further information and the full task within the docs directory in the project in googlecode hosting. Below is a summarized outline of what the application is required to do, it also defines input and output.
+
+Given several documents, the "Document Classifier" will output which categories the document resides in, ranked by the relevance for that category. The relevance is determined by how many times a "phrase" from the vocabulary is found in the document, and using the weight factory as the adding weight.</description>
+ <dependencies>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.4</version>
+  		<type>jar</type>
+  		<scope>test</scope>
+  	</dependency>
+  </dependencies>
+  <properties>
+  	<maven.compiler.source>1.6</maven.compiler.source>
+  	<maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+  </properties>
+</project>

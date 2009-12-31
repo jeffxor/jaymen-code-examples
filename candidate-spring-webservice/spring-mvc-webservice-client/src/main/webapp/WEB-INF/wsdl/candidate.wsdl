@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://www.jaymen.com/cv/schemas/messages" xmlns:sch1="http://www.jaymen.com/cv/schemas/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.jaymen.com/cv/schemas/messages" targetNamespace="http://www.jaymen.com/cv/schemas/messages">
+  <wsdl:types>
+    <xs:schema xmlns:types="http://www.jaymen.com/cv/schemas/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.jaymen.com/cv/schemas/messages"><xs:import namespace="http://www.jaymen.com/cv/schemas/types"/><xs:element name="GetCandidateRequest" type="xs:integer"/><xs:element name="GetCandidateResponse" type="types:Candidate"/><xs:element name="GetCandidatesRequest"/><xs:element name="GetCandidatesResponse"><xs:complexType><xs:sequence><xs:element maxOccurs="unbounded" minOccurs="0" name="candidate" type="types:Candidate"/></xs:sequence></xs:complexType></xs:element><xs:element name="UpdateCandidateRequest"><xs:complexType><xs:sequence><xs:element minOccurs="0" name="candidate" type="types:Candidate"/></xs:sequence></xs:complexType></xs:element><xs:element name="UpdateCandidateResponse"><xs:complexType><xs:sequence><xs:element minOccurs="0" name="candidate" type="types:Candidate"/></xs:sequence></xs:complexType></xs:element><xs:element name="InsertCandidateRequest"><xs:complexType><xs:sequence><xs:element minOccurs="0" name="candidate" type="types:Candidate"/></xs:sequence></xs:complexType></xs:element><xs:element name="InsertCandidateResponse" type="xs:boolean"/><xs:element name="DeleteCandidateRequest" type="xs:integer"/><xs:element name="DeleteCandidateResponse" type="xs:boolean"/><xs:element name="GetOrganisationRequest" type="xs:integer"/><xs:element name="GetOrganisationResponse" type="types:Organisation"/><xs:element name="GetOrganisationsRequest"/><xs:element name="GetOrganisationsResponse"><xs:complexType><xs:sequence><xs:element maxOccurs="unbounded" minOccurs="0" name="organisation" type="types:Organisation"/></xs:sequence></xs:complexType></xs:element><xs:element name="DeleteOrganisationRequest" type="xs:integer"/><xs:element name="DeleteOrganisationResponse" type="xs:boolean"/><xs:element name="GetCandidateEmploymentsRequest" type="xs:integer"/><xs:element name="GetCandidateEmploymentsResponse"><xs:complexType><xs:sequence><xs:element maxOccurs="unbounded" minOccurs="0" name="employment" type="types:Employment"/></xs:sequence></xs:complexType></xs:element></xs:schema>
+    <xs:schema xmlns:tns="http://www.jaymen.com/cv/schemas/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.jaymen.com/cv/schemas/types"><xs:complexType name="Candidate"><xs:sequence><xs:element name="id" type="xs:integer"/><xs:element name="name" type="xs:string"/><xs:element name="address" type="xs:string"/><xs:element name="phone" type="tns:PhoneNumber"/><xs:element name="email" type="tns:Email"/></xs:sequence></xs:complexType><xs:complexType name="Organisation"><xs:sequence><xs:element name="id" type="xs:integer"/><xs:element name="name" type="xs:string"/><xs:element name="address" type="xs:string"/><xs:element name="phone" type="tns:PhoneNumber"/><xs:element name="fax" type="tns:PhoneNumber"/><xs:element name="email" type="tns:Email"/></xs:sequence></xs:complexType><xs:complexType name="Skill"><xs:sequence><xs:element name="id" type="xs:integer"/><xs:element name="name" type="xs:string"/></xs:sequence></xs:complexType><xs:complexType name="Employment"><xs:sequence><xs:element name="id" type="xs:integer"/><xs:element name="jobtitle" type="xs:string"/><xs:element name="startDate" type="xs:date"/><xs:element name="endDate" type="xs:date"/><xs:element minOccurs="0" name="candidate" type="tns:Candidate"/><xs:element minOccurs="0" name="organisation" type="tns:Organisation"/><xs:element maxOccurs="unbounded" minOccurs="0" name="skills" type="tns:Skill"/></xs:sequence></xs:complexType><xs:simpleType name="PhoneNumber"><xs:restriction base="xs:string"><xs:pattern value="\d{12}"/></xs:restriction></xs:simpleType><xs:simpleType name="Email"><xs:restriction base="xs:string"><xs:pattern value="[\w\-]+@([\w\-]+\.)+[\w\-]+"/></xs:restriction></xs:simpleType></xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCandidateResponse">
+    <wsdl:part element="tns:GetCandidateResponse" name="GetCandidateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCandidatesRequest">
+    <wsdl:part element="tns:GetCandidatesRequest" name="GetCandidatesRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteOrganisationRequest">
+    <wsdl:part element="tns:DeleteOrganisationRequest" name="DeleteOrganisationRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCandidateRequest">
+    <wsdl:part element="tns:GetCandidateRequest" name="GetCandidateRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateCandidateRequest">
+    <wsdl:part element="tns:UpdateCandidateRequest" name="UpdateCandidateRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCandidatesResponse">
+    <wsdl:part element="tns:GetCandidatesResponse" name="GetCandidatesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteCandidateRequest">
+    <wsdl:part element="tns:DeleteCandidateRequest" name="DeleteCandidateRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteOrganisationResponse">
+    <wsdl:part element="tns:DeleteOrganisationResponse" name="DeleteOrganisationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InsertCandidateRequest">
+    <wsdl:part element="tns:InsertCandidateRequest" name="InsertCandidateRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationRequest">
+    <wsdl:part element="tns:GetOrganisationRequest" name="GetOrganisationRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsResponse">
+    <wsdl:part element="tns:GetOrganisationsResponse" name="GetOrganisationsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationResponse">
+    <wsdl:part element="tns:GetOrganisationResponse" name="GetOrganisationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCandidateEmploymentsResponse">
+    <wsdl:part element="tns:GetCandidateEmploymentsResponse" name="GetCandidateEmploymentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteCandidateResponse">
+    <wsdl:part element="tns:DeleteCandidateResponse" name="DeleteCandidateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsRequest">
+    <wsdl:part element="tns:GetOrganisationsRequest" name="GetOrganisationsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCandidateEmploymentsRequest">
+    <wsdl:part element="tns:GetCandidateEmploymentsRequest" name="GetCandidateEmploymentsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateCandidateResponse">
+    <wsdl:part element="tns:UpdateCandidateResponse" name="UpdateCandidateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InsertCandidateResponse">
+    <wsdl:part element="tns:InsertCandidateResponse" name="InsertCandidateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="HumanResource">
+    <wsdl:operation name="InsertCandidate">
+      <wsdl:input message="tns:InsertCandidateRequest" name="InsertCandidateRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:InsertCandidateResponse" name="InsertCandidateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCandidate">
+      <wsdl:input message="tns:UpdateCandidateRequest" name="UpdateCandidateRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:UpdateCandidateResponse" name="UpdateCandidateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCandidateEmployments">
+      <wsdl:input message="tns:GetCandidateEmploymentsRequest" name="GetCandidateEmploymentsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:GetCandidateEmploymentsResponse" name="GetCandidateEmploymentsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCandidate">
+      <wsdl:input message="tns:GetCandidateRequest" name="GetCandidateRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:GetCandidateResponse" name="GetCandidateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganisation">
+      <wsdl:input message="tns:DeleteOrganisationRequest" name="DeleteOrganisationRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:DeleteOrganisationResponse" name="DeleteOrganisationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCandidate">
+      <wsdl:input message="tns:DeleteCandidateRequest" name="DeleteCandidateRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:DeleteCandidateResponse" name="DeleteCandidateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCandidates">
+      <wsdl:input message="tns:GetCandidatesRequest" name="GetCandidatesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:GetCandidatesResponse" name="GetCandidatesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisation">
+      <wsdl:input message="tns:GetOrganisationRequest" name="GetOrganisationRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:GetOrganisationResponse" name="GetOrganisationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisations">
+      <wsdl:input message="tns:GetOrganisationsRequest" name="GetOrganisationsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:GetOrganisationsResponse" name="GetOrganisationsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HumanResourceSoap11" type="tns:HumanResource">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="InsertCandidate">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="InsertCandidateRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="InsertCandidateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCandidate">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="UpdateCandidateRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateCandidateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCandidateEmployments">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetCandidateEmploymentsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCandidateEmploymentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCandidate">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetCandidateRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCandidateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganisation">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="DeleteOrganisationRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="DeleteOrganisationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCandidate">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="DeleteCandidateRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="DeleteCandidateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCandidates">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetCandidatesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCandidatesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisation">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetOrganisationRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetOrganisationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisations">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetOrganisationsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetOrganisationsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HumanResourceService">
+    <wsdl:port binding="tns:HumanResourceSoap11" name="HumanResourceSoap11">
+      <soap:address location="http://localhost:8080/spring-mapping-webservice/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
