@@ -1,12 +1,16 @@
 package com.jaymen.candidate.service;
 
-import java.util.Collection;
+import java.util.List;
 
-import com.jaymen.candidate.model.Organisation;;
+import com.jaymen.candidate.dao.exceptions.DaoStoreException;
+import com.jaymen.candidate.model.Organisation;
 
+/**
+ * Defines service level operations allowed for organisation entities.
+ */
 public interface OrganisationService {
-	void persist(Organisation organisation);
-    void remove(Organisation organisation);
+	Organisation persist(Organisation organisation) throws DaoStoreException;
+	void remove(Organisation organisation) throws DaoStoreException;
     Organisation findById(Integer id);
-    Collection<Organisation> findAll();
+    List<Organisation> findAll();
 }

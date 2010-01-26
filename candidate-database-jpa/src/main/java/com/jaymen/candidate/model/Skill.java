@@ -10,6 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+/**
+ * Represents skill entries in the database. Provides
+ * the entity mappings for the skill table.
+ */
 @Entity
 public class Skill {
 	

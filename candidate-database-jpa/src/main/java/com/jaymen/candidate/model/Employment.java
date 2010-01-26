@@ -13,6 +13,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+/**
+ * Represents employment entries in the database. Provides
+ * the entity mappings for the employment table.
+ *
+ */
 @Entity
 public class Employment {
 	@Id

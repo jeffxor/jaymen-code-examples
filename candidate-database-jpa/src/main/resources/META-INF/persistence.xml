@@ -2,7 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
 	version="1.0">
-	<persistence-unit name="outcomes-database">
+	<persistence-unit name="candidate-database">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:/CandidateDS</jta-data-source>
 		<class>com.jaymen.candidate.model.Candidate</class>
@@ -19,23 +19,4 @@
 				value="org.hibernate.transaction.JBossTransactionManagerLookup" />
 		</properties>
 	</persistence-unit>
-		<persistence-unit name="candidate-database-test"
-			transaction-type="RESOURCE_LOCAL">
-			
-			<class>com.jaymen.candidate.model.Candidate</class>
-			<class>com.jaymen.candidate.model.Employment</class>
-			<class>com.jaymen.candidate.model.Organisation</class>
-			<class>com.jaymen.candidate.model.Skill</class>
-			<properties>
-				<property name="hibernate.dialect"
-					value="org.hibernate.dialect.HSQLDialect" />
-				<property name="hibernate.connection.driver_class"
-					value="org.hsqldb.jdbcDriver" />
-				<property name="hibernate.connection.username" value="sa" />
-				<property name="hibernate.connection.password" value="" />
-				<property name="hibernate.connection.url"
-					value="jdbc:hsqldb:mem:my-project-test" />
-				<property name="hibernate.hbm2ddl.auto" value="create-drop" />
-			</properties>
-		</persistence-unit>
 </persistence>

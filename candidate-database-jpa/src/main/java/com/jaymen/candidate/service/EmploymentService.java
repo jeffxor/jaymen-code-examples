@@ -1,12 +1,16 @@
 package com.jaymen.candidate.service;
 
-import java.util.Collection;
+import java.util.List;
 
-import com.jaymen.candidate.model.Employment;;
+import com.jaymen.candidate.dao.exceptions.DaoStoreException;
+import com.jaymen.candidate.model.Employment;
 
+/**
+ * Defines service level operations allowed for employment entities.
+ */
 public interface EmploymentService {
-	void persist(Employment employment);
-    void remove(Employment employment);
+	Employment persist(Employment employment) throws DaoStoreException;
+	void remove(Employment employment) throws DaoStoreException;
     Employment findById(Integer id);
-    Collection<Employment> findAll();
+    List<Employment> findAll();
 }

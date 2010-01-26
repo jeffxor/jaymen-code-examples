@@ -1,29 +1,35 @@
 package com.jaymen.candidate.service.impl;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.ejb.EJB;
 
 import com.jaymen.candidate.dao.CandidateDao;
+import com.jaymen.candidate.dao.exceptions.DaoStoreException;
 import com.jaymen.candidate.model.Candidate;
 import com.jaymen.candidate.service.CandidateService;
 
+/**
+ * Provides a fully working implementation of the candidate service.
+ *
+ */
 public class CandidateServiceImp implements CandidateService {
 	
-	@EJB(name="canidateDao")
+	@EJB(name="candidateDao")
 	private CandidateDao dao;
 		
 	/**
-	 * Method for EJB autowired dependency injection.
+	 * Constructor using EJB auto-wiring dependency injection.
 	 * 
 	 * @param dao
 	 */
-	public void setDao(CandidateDao dao) {
+	public CandidateServiceImp(CandidateDao dao) {
+		super();
 		this.dao = dao;
-	}
+	}	
 
 	@Override
-	public Collection<Candidate> findAll() {
+	public List<Candidate> findAll() {
 		return dao.findAll();
 	}
 
@@ -33,12 +39,12 @@ public class CandidateServiceImp implements CandidateService {
 	}
 
 	@Override
-	public void persist(Candidate candidate) {
-		dao.persist(candidate);		
+	public Candidate persist(Candidate candidate) throws DaoStoreException {
+		return dao.persist(candidate);		
 	}
 
 	@Override
-	public void remove(Candidate candidate) {
+	public void remove(Candidate candidate) throws DaoStoreException {
 		dao.remove(candidate);
 	}
 

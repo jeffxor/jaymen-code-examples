@@ -1,13 +1,18 @@
 package com.jaymen.candidate.service.impl;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.ejb.EJB;
 
 import com.jaymen.candidate.dao.EmploymentDao;
+import com.jaymen.candidate.dao.exceptions.DaoStoreException;
 import com.jaymen.candidate.model.Employment;
 import com.jaymen.candidate.service.EmploymentService;
 
+/**
+ * Provides a fully working implementation of the employment service.
+ *
+ */
 public class EmploymentServiceImpl implements EmploymentService {
 
 	@EJB(name="employmentDao")
@@ -18,12 +23,13 @@ public class EmploymentServiceImpl implements EmploymentService {
 	 * 
 	 * @param dao
 	 */
-	public void setDao(EmploymentDao dao) {
+	public EmploymentServiceImpl(EmploymentDao dao) {
+		super();
 		this.dao = dao;
 	}
-	
+
 	@Override
-	public Collection<Employment> findAll() {
+	public List<Employment> findAll() {
 		return dao.findAll();
 	}
 
@@ -33,12 +39,12 @@ public class EmploymentServiceImpl implements EmploymentService {
 	}
 
 	@Override
-	public void persist(Employment employment) {
-		dao.persist(employment);
+	public Employment persist(Employment employment) throws DaoStoreException {
+		return dao.persist(employment);
 	}
 
 	@Override
-	public void remove(Employment employment) {
+	public void remove(Employment employment) throws DaoStoreException {
 		dao.remove(employment);
 	}
 

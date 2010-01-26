@@ -2,6 +2,7 @@ package com.jaymen.candidate.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
+/**
+ * Represents candidate entries in the database. Provides
+ * the entity mappings for the candidate table
+ *
+ */
 @Entity
 public class Candidate {
 	
@@ -52,7 +58,7 @@ public class Candidate {
 		this.email = email;
 	}
 	
-	@OneToMany(mappedBy="candidate")
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="candidate")
     @OrderBy("startDate")
 	public List<Employment> getEmployments() {
 		return employments;

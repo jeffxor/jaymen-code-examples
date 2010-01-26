@@ -19,38 +19,38 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.jaymen.candidate.dao.CandidateDao;
+import com.jaymen.candidate.dao.EmploymentDao;
 import com.jaymen.candidate.dao.exceptions.DaoStoreException;
-import com.jaymen.candidate.dao.jpa.CandidateDaoJpaTest;
-import com.jaymen.candidate.model.Candidate;
-import com.jaymen.candidate.service.CandidateService;
+import com.jaymen.candidate.dao.jpa.EmploymentDaoJpaTest;
+import com.jaymen.candidate.model.Employment;
+import com.jaymen.candidate.service.EmploymentService;
 
 /**
  * @author jeffxor
  *
  */
 
-public class CandidateServiceTest {
+public class EmploymentServiceTest {
 
-	private CandidateDao dao;
-	private CandidateService service;
+	private EmploymentDao dao;
+	private EmploymentService service;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {	
-		dao = mock(CandidateDao.class);
-		service = new CandidateServiceImp(dao);
+		dao = mock(EmploymentDao.class);
+		service = new EmploymentServiceImpl(dao);
 	}
 
 	@Test
 	public void findAll(){
-		List<Candidate> candidates = CandidateDaoJpaTest.createCandidates();
+		List<Employment> employments = EmploymentDaoJpaTest.createEmployments();
 
-		when(dao.findAll()).thenReturn(candidates);
+		when(dao.findAll()).thenReturn(employments);
 
-		Collection<Candidate> result = service.findAll();
+		Collection<Employment> result = service.findAll();
 
 		verify(dao).findAll();
 		assertEquals(3, result.size());		
@@ -58,21 +58,21 @@ public class CandidateServiceTest {
 
 	@Test
 	public void findById(){
-		Candidate candidate = CandidateDaoJpaTest.createCandidate(1, "Test Candidate One");
+		Employment employment = EmploymentDaoJpaTest.createEmployment(1, "Test Employment One");
 
-		when(dao.findById(1)).thenReturn(candidate);
+		when(dao.findById(1)).thenReturn(employment);
 
-		Candidate candidateTest = service.findById(1);
+		Employment employmentTest = service.findById(1);
 
 		verify(dao).findById(1);
-		assertSame(candidate, candidateTest);
+		assertSame(employment, employmentTest);
 	}
 
 	@Test
 	public void findByUnknownId(){
 		when(dao.findById(2)).thenReturn(null);
 
-		Candidate result = service.findById(2);
+		Employment result = service.findById(2);
 
 		verify(dao).findById(2);
 		assertNull(result);
@@ -81,59 +81,59 @@ public class CandidateServiceTest {
 	@Test
 	public void persist() throws DaoStoreException{
 		
-		Candidate candidate = CandidateDaoJpaTest.createCandidate(1, "test user");
+		Employment employment = EmploymentDaoJpaTest.createEmployment(1, "test user");
 				
-		when(dao.persist(candidate)).thenReturn(candidate);
+		when(dao.persist(employment)).thenReturn(employment);
 		
-		Candidate actual = service.persist(candidate);
+		Employment actual = service.persist(employment);
 
-		verify(dao).persist(candidate);
-		assertSame(candidate, actual);
+		verify(dao).persist(employment);
+		assertSame(employment, actual);
 	}
 	
 	@Test
 	public void persistDaoStoreException() throws DaoStoreException{		
-		Candidate candidate = CandidateDaoJpaTest.createCandidate(1, "test user");
+		Employment employment = EmploymentDaoJpaTest.createEmployment(1, "test user");
 		IllegalStateException illegalStateException = new IllegalStateException("");
 				
 		//Expectations
-		doThrow(illegalStateException).when(dao).persist(candidate);
+		doThrow(illegalStateException).when(dao).persist(employment);
 		
 		try{
 			//Test
-			service.persist(candidate);
+			service.persist(employment);
 			fail("Should have thrown an IllegalStateException");
 		}catch (Exception e) {
 			assertSame(illegalStateException, e);
 		}		
-		verify(dao).persist(candidate);		
+		verify(dao).persist(employment);		
 	}
 	
 	@Test
 	public void remove() throws DaoStoreException{
 		
-		Candidate candidate = CandidateDaoJpaTest.createCandidate(1, "test user");
+		Employment employment = EmploymentDaoJpaTest.createEmployment(1, "test user");
 				
-		doNothing().when(dao).remove(candidate);
+		doNothing().when(dao).remove(employment);
 		
-		service.remove(candidate);
+		service.remove(employment);
 
-		verify(dao).remove(candidate);
+		verify(dao).remove(employment);
 	}
 	
 	@Test
 	public void removeDaoStoreException() throws DaoStoreException{
-		Candidate candidate = CandidateDaoJpaTest.createCandidate(1, "test user");
+		Employment employment = EmploymentDaoJpaTest.createEmployment(1, "test user");
 		IllegalStateException illegalStateException = new IllegalStateException("");
 				
-		doThrow(illegalStateException).when(dao).remove(candidate);
+		doThrow(illegalStateException).when(dao).remove(employment);
 
 		try{
-			service.remove(candidate);
+			service.remove(employment);
 			fail("Should have thrown an IllegalStateException");
 		}catch (Exception e) {
 			assertSame(illegalStateException, e);
 		}		
-		verify(dao).remove(candidate);		
+		verify(dao).remove(employment);		
 	}
 }
