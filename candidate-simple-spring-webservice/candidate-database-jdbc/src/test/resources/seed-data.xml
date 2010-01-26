@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+<!-- Insert candidates -->
+    <candidate
+        id="1"
+        name="Jeffrey Williams"
+        address="59/1 Braybrooke St Bruce 2567"
+        phone="0246478710"
+        email="jeff@text.com"/>
+    <candidate
+        id="2"
+        name="Liegh Gordon"
+        address="1/2 The Grassmarket Edinburgh EH1 2GQ"
+        phone="0746478710"
+        email="liegh@text.com"/>
+    <candidate
+        id="3"
+        name="Richard Friend"
+        address="1/2 London Ave London EH1 2GQ"
+        phone="0746471111"
+        email="Richard@text.com"/>
+<!-- Insert Organisations -->
+    <organisation
+        id="1"
+        name="IBM"
+        address="1 IBM Street Canberra 2567"
+        phone="0298765433"
+        fax="0298765401"
+        email="enquires@ibm.com.au"/>
+    <organisation
+        id="2"
+        name="Sun Microsystems"
+        address="1 Sun Street Canberra 2567"
+        phone="0268765433"
+        fax="0268765401"
+        email="enquires@sun.com.au"/>
+    <organisation
+        id="3"
+        name="Canberra University"
+        address="1 haydron Drive Canberra 2567"
+        phone="0268765502"
+        fax="0268765501"
+        email="enquires@cu.com.au"/>
+<!-- Insert Skills -->
+    <skill
+        id="1"
+        name="Java"/>
+    <skill
+        id="2"
+        name="J2EE"/>
+    <skill
+        id="3"
+        name="Hibernate"/>
+    <skill
+        id="4"
+        name="Spring Core"/>
+    <skill
+        id="5"
+        name="EJB"/>
+    <skill
+        id="6"
+        name="AJAX"/>
+    <skill
+        id="7"
+        name="Web Services"/>
+    <skill
+        id="8"
+        name="Flex"/>
+    <skill
+        id="9"
+        name="Project Management"/>
+<!-- Insert Employments -->
+    <employment
+    	id="1"
+        candidate_id="1"
+        organisation_id="1"
+        jobtitle="Junior Developer"
+        start_date="2003-08-01"
+        end_date="2004-09-01"/>
+    <employment
+    	id="2"
+        candidate_id="1"
+        organisation_id="2"
+        jobtitle="Developer"
+        start_date="2004-10-01"
+        end_date="2005-09-01"/>        
+    <employment
+    	id="3"
+        candidate_id="1"
+        organisation_id="3"
+        jobtitle="Senior Developer"
+        start_date="2005-11-01"
+        end_date="2007-12-12"/>        
+    <employment
+    	id="4"
+        candidate_id="2"
+        organisation_id="1"
+        jobtitle="Team Lead"
+        start_date="2003-08-01"
+        end_date="2007-09-01"/>
+    <employment
+    	id="5"
+        candidate_id="2"
+        organisation_id="3"
+        jobtitle="Systems Architect"
+        start_date="2007-11-01" /> 
+    <employment
+    	id="6"
+        candidate_id="3"
+        organisation_id="3"
+        jobtitle="Senior Developer"
+        start_date="2001-08-01"
+        end_date="2007-12-23"/>
+    <employment
+    	id="7"
+        candidate_id="3"
+        organisation_id="2"
+        jobtitle="Project Lead"
+        start_date="2008-11-01" />
+<!-- Insert Employment Skill -->
+    <employment_skill
+        skill_id="1"
+        employment_id="1"/>
+    <employment_skill
+        skill_id="1"
+        employment_id="2"/>                         
+    <employment_skill
+        skill_id="1"
+        employment_id="3"/>
+    <employment_skill
+        skill_id="1"
+        employment_id="5"/>
+    <employment_skill
+        skill_id="1"
+        employment_id="7"/>
+    <employment_skill
+        skill_id="2"
+        employment_id="2"/>                         
+    <employment_skill
+        skill_id="2"
+        employment_id="4"/>
+    <employment_skill
+        skill_id="2"
+        employment_id="6"/>                              
+    <employment_skill
+        skill_id="2"
+        employment_id="7"/>                              
+    <employment_skill
+        skill_id="3"
+        employment_id="1"/>
+    <employment_skill
+        skill_id="3"
+        employment_id="6"/>                              
+    <employment_skill
+        skill_id="3"
+        employment_id="3"/>                              
+    <employment_skill
+        skill_id="4"
+        employment_id="7"/>
+    <employment_skill
+        skill_id="4"
+        employment_id="5"/>                              
+    <employment_skill
+        skill_id="4"
+        employment_id="4"/>                              
+    <employment_skill
+        skill_id="4"
+        employment_id="3"/>
+    <employment_skill
+        skill_id="4"
+        employment_id="2"/>                              
+    <employment_skill
+        skill_id="4"
+        employment_id="7"/>                              
+    <employment_skill
+        skill_id="4"
+        employment_id="5"/>                              
+    <employment_skill
+        skill_id="5"
+        employment_id="2"/>                              
+    <employment_skill
+        skill_id="5"
+        employment_id="1"/>                              
+    <employment_skill
+        skill_id="5"
+        employment_id="5"/>                              
+    <employment_skill
+        skill_id="6"
+        employment_id="7"/>                              
+    <employment_skill
+        skill_id="6"
+        employment_id="2"/>                              
+    <employment_skill
+        skill_id="6"
+        employment_id="6"/>                              
+    <employment_skill
+        skill_id="6"
+        employment_id="1"/>                                                                 
+</dataset>

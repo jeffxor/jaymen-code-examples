@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+		<property name="url" value="jdbc:hsqldb:hsql://localhost/candidate"/>
+		<property name="username" value="sa"/>
+		<property name="password" value=""/>
+	</bean>
+
+	<bean id="candidateDao" class="com.jaymen.spring.dao.jdbc.CandidateDaoJdbc">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="candidateEndpoint" class="com.jaymen.candidate.ws.GetCandidateEndpoint">
+        	<constructor-arg ref="candidateDao"/>
+	</bean>
+
+	<bean id="candidatesEndpoint" class="com.jaymen.candidate.ws.GetCandidatesEndpoint">
+        	<constructor-arg ref="candidateDao"/>
+	</bean>
+	
+	<bean id="updateCandidateEndpoint" class="com.jaymen.candidate.ws.UpdateCandidateEndpoint">
+        	<constructor-arg ref="candidateDao"/>
+	</bean>
+	
+	<bean id="insertCandidateEndpoint" class="com.jaymen.candidate.ws.InsertCandidateEndpoint">
+        	<constructor-arg ref="candidateDao"/>
+	</bean>
+
+	<bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootQNameEndpointMapping">
+ 	   <property name="mappings">
+ 	       <props>
+ 	           <prop key="{http://www.jaymen.co.uk/cv/schemas/messages}GetCandidateRequest">candidateEndpoint</prop>
+ 	           <prop key="{http://www.jaymen.co.uk/cv/schemas/messages}GetCandidatesRequest">candidatesEndpoint</prop>
+ 	           <prop key="{http://www.jaymen.co.uk/cv/schemas/messages}UpdateCandidateRequest">updateCandidateEndpoint</prop>
+ 	           <prop key="{http://www.jaymen.co.uk/cv/schemas/messages}InsertCandidateRequest">insertCandidateEndpoint</prop>
+ 	       </props>
+	    </property>
+	    <property name="interceptors">
+	        <bean class="org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor"/>
+	    </property>
+	</bean>
+	
+	<bean id="candidate" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition">   
+    	<property name="schemaCollection" ref="schemaCollection"/>                                               
+    	<property name="portTypeName" value="HumanResource"/>                                
+    	<property name="locationUri" value="http://localhost:8080/candidateService"/>                              
+    	<property name="targetNamespace" value="http://www.jaymen.com/cv/schemas/messages"/>       
+	</bean>
+<!-- 
+	<bean id="schema" class="org.springframework.xml.xsd.SimpleXsdSchema">                   
+    	<property name="xsd" value="/WEB-INF/messages.xsd"/>
+	</bean>
+-->
+	<bean id="schemaCollection" class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+    	<description>
+        	This bean wrap the messages.xsd (which imports types.xsd), and inlines them as a one.
+    	</description>
+    	<property name="xsds">
+        	<list>
+            	<value>/WEB-INF/messages.xsd</value>            	
+        	</list>
+    	</property>
+    	<property name="inline" value="true"/>
+	</bean>	
+	
+</beans>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UpdateCandidateRequest xmlns="http://www.jaymen.com/cv/schemas/messages">
+	<candidate>
+		<id>1</id>
+		<name>Jeffrey Williams Updated</name>
+		<address>59/1 Braybrooke St Bruce 2567</address>
+		<phone>0246478710</phone>
+		<email>jeff@text.com</email>
+	</candidate>
+</UpdateCandidateRequest>		

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="candidateClient" class="com.jaymen.candidate.client.CandidateClient">
+        <property name="defaultUri" value="http://localhost:8080/candidate-spring-mapping-webservice/"/>
+        <property name="candidateRequest" value="classpath:com/jaymen/candidate/client/candidateRequest.xml"/>
+        <property name="candidatesRequest" value="classpath:com/jaymen/candidate/client/candidatesRequest.xml"/>
+        <property name="insertCandidateRequest" value="classpath:com/jaymen/candidate/client/insertCandidateRequest.xml"/>
+        <property name="updateCandidateRequest" value="classpath:com/jaymen/candidate/client/updateCandidateRequest.xml"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InsertCandidateRequest xmlns="http://www.jaymen.com/cv/schemas/messages">
+	<candidate>
+		<id></id>
+		<name>Test Entry</name>
+		<address>1 New Test Address</address>
+		<phone>0246787849</phone>
+		<email>test@testing.com</email>
+	</candidate>
+</InsertCandidateRequest>
