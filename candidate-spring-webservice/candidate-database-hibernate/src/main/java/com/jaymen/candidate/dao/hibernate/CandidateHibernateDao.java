@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jaymen.candidate.dao.CandidateDao;
 import com.jaymen.candidate.domain.Candidate;
@@ -33,19 +34,20 @@ public class CandidateHibernateDao extends HibernateDaoSupport implements
 		return this.getHibernateTemplate().find("FROM com.jaymen.candidate.domain.Candidate candidate");
 	}
 
-	public Boolean insertCandidate(Candidate candidate) {
+	public Candidate insertCandidate(Candidate candidate) {
 		logger.debug("adding a new candidate");
 		this.getHibernateTemplate().saveOrUpdate(candidate);
-		return true;
+		return candidate;
 	}
 
+	@Transactional
 	public Boolean removeCandidate(Integer id) {
 		logger.debug("removing candidate with id: " + id);
 		this.getHibernateTemplate().delete(getCandidate(id));
 		return true;
 	}
 
-	public Boolean updateCandidate(Candidate candidate) {
+	public Candidate updateCandidate(Candidate candidate) {
 		logger.debug("updating candidate with id: " + candidate.getId());
 		return this.insertCandidate(candidate);
 	}

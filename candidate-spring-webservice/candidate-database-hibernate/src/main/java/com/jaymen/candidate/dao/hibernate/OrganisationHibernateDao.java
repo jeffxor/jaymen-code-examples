@@ -18,7 +18,7 @@ public class OrganisationHibernateDao extends HibernateDaoSupport implements
 	@SuppressWarnings("unchecked")
 	public List<Organisation> findOrganisationsByName(String name) {
 		logger.debug("searching for organisations matching name: " + name);
-		return this.getHibernateTemplate().find("FROM com.jaymen.candidate.domain.Organisation Organisation " +
+		return this.getHibernateTemplate().find("FROM com.jaymen.candidate.domain.Organisation organisation " +
 				"WHERE name like ?", name);
 	}
 
@@ -30,13 +30,13 @@ public class OrganisationHibernateDao extends HibernateDaoSupport implements
 	@SuppressWarnings("unchecked")
 	public List<Organisation> getOrganisations() {
 		logger.debug("getting all organisations");
-		return this.getHibernateTemplate().find("FROM com.jaymen.candidate.domain.Organisation Organisation");
+		return this.getHibernateTemplate().find("FROM com.jaymen.candidate.domain.Organisation organisation");
 	}
 
-	public Boolean insertOrganisation(Organisation organisation) {
+	public Organisation insertOrganisation(Organisation organisation) {
 		logger.debug("adding a new organisation");
 		this.getHibernateTemplate().saveOrUpdate(organisation);
-		return true;
+		return organisation;
 	}
 
 	public Boolean removeOrganisation(Integer id) {
@@ -45,7 +45,7 @@ public class OrganisationHibernateDao extends HibernateDaoSupport implements
 		return true;
 	}
 
-	public Boolean updateOrganisation(Organisation organisation) {
+	public Organisation updateOrganisation(Organisation organisation) {
 		logger.debug("updating organisation with id: " + organisation.getId());
 		return this.insertOrganisation(organisation);
 	}

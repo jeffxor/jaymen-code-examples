@@ -2,6 +2,7 @@ package com.jaymen.candidate.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -59,7 +60,7 @@ public class Organisation {
 		this.email = email;
 	}
 	
-	@OneToMany(mappedBy="organisation")
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="organisation")
     @OrderBy("startDate")
 	public List<Employment> getEmployments() {
 		return employments;

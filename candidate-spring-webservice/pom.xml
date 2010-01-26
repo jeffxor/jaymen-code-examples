@@ -1,49 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.jaymen.candidate</groupId>
-  <artifactId>candidate-spring-webservice</artifactId>
-  <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>candidate-simple-spring-webservice</name>
-  <url>http://maven.apache.org</url>
-  <modules>
-    <module>candidate-database-hibernate</module>
-    <module>spring-mapping-webservice</module>
-    <module>spring-mvc-webservice-client</module>
-  </modules>
-  <properties>
-  	<cxf.version>2.2.3</cxf.version>
-  	<spring.version>2.5.6</spring.version>
-	<spring.ws.version>1.5.8</spring.ws.version>
-	<slf4j.version>1.5.8</slf4j.version>
-  </properties>
-    <repositories>
-        <repository>
-            <id>java.net</id>
-            <name>Java.net Repository for Maven2</name>
-            <url>http://download.java.net/maven/1/</url>
-            <layout>legacy</layout>
-        </repository>
-    </repositories>  
-    <pluginRepositories>
-        <pluginRepository>
-            <id>java.net</id>
-            <name>Java.net Repository for Maven2</name>
-            <url>http://download.java.net/maven/1/</url>
-            <layout>legacy</layout>
-        </pluginRepository>
-    </pluginRepositories>
-    <build>
-    	 <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-	    </plugins>
-    </build>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.jaymen.candidate</groupId>
+	<artifactId>candidate-spring-webservice</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>candidate-simple-spring-webservice</name>
+	<url>http://maven.apache.org</url>
+	<modules>
+		<module>candidate-database-hibernate</module>
+		<module>spring-mapping-webservice</module>
+		<module>spring-mvc-webservice-client</module>
+	</modules>
+	<properties>
+		<cxf.version>2.2.3</cxf.version>
+		<spring.version>2.5.6</spring.version>
+		<spring.ws.version>1.5.8</spring.ws.version>
+		<slf4j.version>1.5.8</slf4j.version>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+		<hsqldb.version>1.8.0.7</hsqldb.version>
+	</properties>
+	<repositories>
+		<repository>
+			<id>java.net</id>
+			<name>Java.net Repository for Maven2</name>
+			<url>http://download.java.net/maven/1/</url>
+			<layout>legacy</layout>
+		</repository>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Maven 2 Repository</name>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Maven 2 Repository</name>
+			<url>http://download.java.net/maven/2</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>java.net</id>
+			<name>Java.net Repository for Maven2</name>
+			<url>http://download.java.net/maven/1/</url>
+			<layout>legacy</layout>
+		</pluginRepository>
+	</pluginRepositories>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<targetJdk>1.6</targetJdk>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.6.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.4.2</version>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>

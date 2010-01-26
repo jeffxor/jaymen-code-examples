@@ -1,12 +1,12 @@
 package com.jaymen.candidate.mvc.controller.organisation;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +19,7 @@ import com.jaymen.cv.schemas.types.Organisation;
  * JavaBean Form controller that is used to delete an existing <code>Organisation</code>.
  */
 @Controller
-@RequestMapping("/organisation/search.do")
+@RequestMapping("/organisationSearch.do")
 @SessionAttributes(types = Organisation.class)
 public class SearchOrganisationForm {
 	
@@ -42,8 +42,19 @@ public class SearchOrganisationForm {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String processSubmit(@RequestParam("organisationId") Integer organisationId, @RequestParam("organisationName") String organisationName) {		
-		return "redirect:organisation.do?organisationId=" + 1;
+	public String processSubmit(@RequestParam(value = "organisationId", required = false) Integer organisationId, 
+			@RequestParam(value = "organisationName", required = false) String name,
+			@RequestParam(value = "_cancel", required = false) String cancel,
+			ModelMap modelMap) {
+		String returnValue;
+        if ("CANCEL".equalsIgnoreCase(cancel)) {
+            returnValue = "redirect:organisations.do";
+        } else {
+        	List<Organisation> organisations = organisationService.searchOrganisations(name);
+        	modelMap.addAttribute(organisations);
+            returnValue = "organisationResults";
+        }
+        return returnValue;
 	}
 
 }

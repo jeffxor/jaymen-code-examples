@@ -6,7 +6,7 @@
 	
 	<xs:complexType name="Candidate">
 		<xs:sequence>
-			<xs:element name="id" type="xs:integer"/>
+			<xs:element name="id" type="xs:integer" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="name" type="xs:string"/>
 			<xs:element name="address" type="xs:string"/>
 			<xs:element name="phone" type="tns:PhoneNumber"/>
@@ -16,7 +16,7 @@
 	
 	<xs:complexType name="Organisation">
 		<xs:sequence>
-			<xs:element name="id" type="xs:integer"/>
+			<xs:element name="id" type="xs:integer" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="name" type="xs:string"/>
 			<xs:element name="address" type="xs:string"/>
 			<xs:element name="phone" type="tns:PhoneNumber"/>
@@ -46,7 +46,7 @@
 	
 	<xs:simpleType name="PhoneNumber">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="\d{12}"/>
+			<xs:pattern value="\d{10,12}"/>
 		</xs:restriction>
 	</xs:simpleType>
 

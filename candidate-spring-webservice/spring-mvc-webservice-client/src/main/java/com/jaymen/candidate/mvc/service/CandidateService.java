@@ -6,4 +6,5 @@ import com.jaymen.cv.schemas.types.Candidate;
 
 public interface CandidateService extends AbstractService<Integer, Candidate>{
 
+	List<Candidate> searchCandidates(String name);
 }

@@ -20,19 +20,27 @@
     		<c:url value="/organisation.do" var="organisationUrl">
    				<c:param name="organisationId" value="${organisation.id}" />
 			</c:url>
+			<c:url value="/updateOrganisation.do" var="organisationUpdateUrl">
+   				<c:param name="organisationId" value="${organisation.id}" />
+			</c:url>
+			<c:url value="/deleteOrganisation.do" var="organisationDeleteUrl">
+   				<c:param name="organisationId" value="${organisation.id}" />
+			</c:url>			
     		<tr>    		
 	    		<td><a href='<c:out value="${organisationUrl}"/>'><c:out value="${organisation.name}"/></a></td>
-	    		<td><a href='<c:out value="${organisationUrl}"/>'><c:out value="${organisation.id}"/></a>
+	    		<td><a href='<c:out value="${organisationUrl}"/>'><c:out value="${organisation.id}"/></a></td>
 	            <td><c:out value="${organisation.address}"/></td>
 	            <td><c:out value="${organisation.email}"/></td>
 	            <td><c:out value="${organisation.phone}"/></td>
 	            <td><c:out value="${organisation.fax}"/></td>
             	<td>
             		<a href='<c:out value="${organisationUrl}"/>'>View</a>
+            		<a href='<c:out value="${organisationUpdateUrl}"/>'>Update</a>
+            		<a href='<c:out value="${organisationDeleteUrl}"/>'>Delete</a>
             	</td>            
         	</tr>
         </c:forEach>
     </table>
-
+	<a href='<c:url value="/insertOrganisation.do"/>'>Add Candidate</a>
 </body>
 </html>

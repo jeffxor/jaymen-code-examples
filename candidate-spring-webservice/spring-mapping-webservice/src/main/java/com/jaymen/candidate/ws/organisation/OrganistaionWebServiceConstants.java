@@ -10,4 +10,10 @@ public interface OrganistaionWebServiceConstants {
 
 	String DELETE_ORGANISATION_REQUEST = "DeleteOrganisationRequest";
 
+	String UPDATE_ORGANISATION_REQUEST = "UpdateOrganisationRequest";
+	
+	String INSERT_ORGANISATION_REQUEST = "InsertOrganisationRequest";
+	
+	String SEARCH_ORGANISATIONS_REQUEST = "SearchOrganisationsRequest";
+
 }

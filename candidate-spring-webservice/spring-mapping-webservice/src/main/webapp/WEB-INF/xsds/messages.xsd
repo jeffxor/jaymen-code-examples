@@ -1,72 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-        targetNamespace="http://www.jaymen.com/cv/schemas/messages"
-        xmlns:tns="http://www.jaymen.com/cv/schemas/messages"
-        xmlns:types="http://www.jaymen.com/cv/schemas/types"
-        elementFormDefault="qualified">
+	targetNamespace="http://www.jaymen.com/cv/schemas/messages" xmlns:tns="http://www.jaymen.com/cv/schemas/messages"
+	xmlns:types="http://www.jaymen.com/cv/schemas/types"
+	elementFormDefault="qualified">
 
-	<xs:import namespace="http://www.jaymen.com/cv/schemas/types" schemaLocation="types.xsd"/>
-	
-	<xs:element name="GetCandidateRequest" type="xs:integer"/>
-	<xs:element name="GetCandidateResponse" type="types:Candidate"/>
+	<xs:import namespace="http://www.jaymen.com/cv/schemas/types"
+		schemaLocation="types.xsd" />
+	<!-- Deal with Candidates -->
+	<xs:element name="GetCandidateRequest" type="xs:integer" />
+	<xs:element name="GetCandidateResponse" type="types:Candidate" />
 
-	<xs:element name="GetCandidatesRequest"/>
+	<xs:element name="GetCandidatesRequest" />
 	<xs:element name="GetCandidatesResponse">
 		<xs:complexType>
-					<xs:sequence>
-						<xs:element name="candidate" type="types:Candidate" minOccurs="0" maxOccurs="unbounded"/>
-					</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	
-	<xs:element name="UpdateCandidateRequest">
-		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="candidate" type="types:Candidate" minOccurs="0" maxOccurs="1"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="UpdateCandidateResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="candidate" type="types:Candidate" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="candidates" type="types:Candidate"
+					minOccurs="0" maxOccurs="unbounded" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 
-	<xs:element name="InsertCandidateRequest">
+	<xs:element name="SearchCandidatesRequest">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="candidate" type="types:Candidate" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="id" type="xs:integer" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="name" type="xs:string" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="InsertCandidateResponse" type="xs:boolean"/>
-	
-	<xs:element name="DeleteCandidateRequest" type="xs:integer"/>
-	<xs:element name="DeleteCandidateResponse" type="xs:boolean"/>
-		
-	<xs:element name="GetOrganisationRequest" type="xs:integer"/>
-	<xs:element name="GetOrganisationResponse" type="types:Organisation"/>
+	<xs:element name="SearchCandidatesResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="candidates" type="types:Candidate"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 
-	<xs:element name="GetOrganisationsRequest"/>
+	<xs:element name="UpdateCandidateRequest" type="types:Candidate" />
+	<xs:element name="UpdateCandidateResponse" type="types:Candidate" />
+
+	<xs:element name="InsertCandidateRequest" type="types:Candidate" />
+	<xs:element name="InsertCandidateResponse" type="types:Candidate" />
+
+	<xs:element name="DeleteCandidateRequest" type="xs:integer" />
+	<xs:element name="DeleteCandidateResponse" type="xs:boolean" />
+
+	<!-- Deal with Organisations -->
+	<xs:element name="GetOrganisationRequest" type="xs:integer" />
+	<xs:element name="GetOrganisationResponse" type="types:Organisation" />
+
+	<xs:element name="GetOrganisationsRequest" />
 	<xs:element name="GetOrganisationsResponse">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="organisation" type="types:Organisation" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="organisations" type="types:Organisation"
+					minOccurs="0" maxOccurs="unbounded" />
 			</xs:sequence>
 		</xs:complexType>
-	</xs:element>	
-	
-	<xs:element name="DeleteOrganisationRequest" type="xs:integer"/>
-	<xs:element name="DeleteOrganisationResponse" type="xs:boolean"/>
+	</xs:element>
 
-	<xs:element name="GetCandidateEmploymentsRequest" type="xs:integer"/>
+	<xs:element name="SearchOrganisationsRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:integer" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="name" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SearchOrganisationsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="organisations" type="types:Organisation"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="UpdateOrganisationRequest" type="types:Organisation" />
+	<xs:element name="UpdateOrganisationResponse" type="types:Organisation" />
+
+	<xs:element name="InsertOrganisationRequest" type="types:Organisation" />
+	<xs:element name="InsertOrganisationResponse" type="types:Organisation" />
+
+
+	<xs:element name="DeleteOrganisationRequest" type="xs:integer" />
+	<xs:element name="DeleteOrganisationResponse" type="xs:boolean" />
+
+
+
+	<xs:element name="GetCandidateEmploymentsRequest" type="xs:integer" />
 	<xs:element name="GetCandidateEmploymentsResponse">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="employment" type="types:Employment" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="employment" type="types:Employment"
+					minOccurs="0" maxOccurs="unbounded" />
 			</xs:sequence>
 		</xs:complexType>
-	</xs:element>	
+	</xs:element>
+	
+		<xs:element name="GetOrganisationEmploymentsRequest" type="xs:integer" />
+	<xs:element name="GetOrganisationEmploymentsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employment" type="types:Employment"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 </xs:schema>

@@ -45,7 +45,7 @@
         <constructor-arg ref="organisationDao"/>
     </bean>
     
-    <oxm:jaxb2-marshaller id="marshaller" contextPath="com.jaymen.candidate.ws.schema"/>
+    <oxm:jaxb2-marshaller id="marshaller" contextPath="com.jaymen.cv.schemas.messages:com.jaymen.cv.schemas.types"/>
 
     <!-- ===================== ENDPOINT MAPPINGS  ============================== -->
 

@@ -19,7 +19,7 @@ public class EmploymentHibernateDao extends HibernateDaoSupport implements
 	public List<Employment> getEmploymentsByCandidateId(Integer candidateId) {
 		logger.debug("find all employments for candidate id: " + candidateId);
 		return this.getHibernateTemplate().find("FROM com.jaymen.candidate.domain.Employment " +
-				"WHERE candidateId = ?", candidateId);
+				"WHERE candidate.id = ?", candidateId);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -27,12 +27,15 @@ public class EmploymentHibernateDao extends HibernateDaoSupport implements
 			Integer organisationId) {
 		logger.debug("find all employments for organisation id: " + organisationId);
 		return this.getHibernateTemplate().find("FROM com.jaymen.candidate.domain.Employment " +
-				"WHERE organisationidId = ?", organisationId);
+				"WHERE organisation.id = ?", organisationId);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Employment> getEmploymentsBySkillId(Integer skillId) {
 		logger.debug("find all employments for skill id: " + skillId);
-		throw new UnsupportedOperationException();
+		return this.getHibernateTemplate().find("SELECT e FROM com.jaymen.candidate.domain.Employment e " +
+				"JOIN e.skills s "  +
+				"WHERE s.id = ?", skillId);
 	}
 
 }

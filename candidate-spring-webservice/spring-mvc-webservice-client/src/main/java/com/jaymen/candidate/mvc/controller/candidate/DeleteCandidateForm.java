@@ -3,15 +3,12 @@ package com.jaymen.candidate.mvc.controller.candidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
 
 import com.jaymen.candidate.mvc.service.CandidateService;
 import com.jaymen.cv.schemas.types.Candidate;
@@ -41,7 +38,7 @@ public class DeleteCandidateForm {
 	public String setupForm(@RequestParam("candidateId") Integer candidateId, Model model) {
 		Candidate candidate = candidateService.get(candidateId);
 		model.addAttribute(candidate);
-		return "deletecandidate";
+		return "candidateDelete";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

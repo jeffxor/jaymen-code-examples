@@ -1,25 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<head><title>Find Candidate</title></head>
+<head><title>Search Candidate</title></head>
 <body>
-<form method="get" action='<c:url value="/candidate.do"/>'>
-
+<h1>Search Candidate</h1>
+<form:form>
     <table>
-        <tr>
-            <td>Candidate Id:</td>
-            <td><input name="candidateId" value=""/></br> OR</td>
-        </tr>
         <tr>
             <td>Candidate Name: (% is wildcard)</td>
             <td><input name="candidateName" value=""/></td>
         </tr>
         <tr>
-            <td colspan="2">
-                <input type="submit" value="Submit"/>
-            </td>
+            <td><input type="submit" value="Submit"/></td>
+            <td><input type="submit" name="_cancel" value="Cancel"/></td>
         </tr>
     </table>
-</form>
+</form:form>
 </body>
 </html>

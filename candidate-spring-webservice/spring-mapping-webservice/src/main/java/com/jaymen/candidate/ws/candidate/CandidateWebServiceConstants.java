@@ -9,4 +9,10 @@ public interface CandidateWebServiceConstants {
 	String GET_CANDIDATES_REQUEST = "GetCandidatesRequest";
 	
 	String DELETE_CANDIDATE_REQUEST = "DeleteCandidateRequest";
+	
+	String UPDATE_CANDIDATE_REQUEST = "UpdateCandidateRequest";
+	
+	String INSERT_CANDIDATE_REQUEST = "InsertCandidateRequest";
+	
+	String SEARCH_CANDIDATES_REQUEST = "SearchCandidatesRequest";
 }
