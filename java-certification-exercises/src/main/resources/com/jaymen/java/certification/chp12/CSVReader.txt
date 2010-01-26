@@ -1,0 +1,12 @@
+Write a method that reads input specified in Comma-Separated-Value (CSV)
+format. Each line represents a record with a fixed number of fields. The fields in
+each record are separated by a comma. The last field of the record is terminated
+by a line separator.
+The method reads the input one line at a time, and extracts the field values. The
+program must ensure that the correct number of fields are specified in each record.
+
+Given the test data below, the program prints:
+[2.5, 25, 250]
+[Hi, Hello, Howdy]
+[2008, 2009, 2010]
+[one, two, three]

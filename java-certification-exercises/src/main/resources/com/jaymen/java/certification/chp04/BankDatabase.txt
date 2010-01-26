@@ -1,0 +1,20 @@
+Design a class for a bank database. The database should support the following
+operations:
+
+	* deposit a certain amount into an account
+	* withdraw a certain amount from an account
+	* get the balance (i.e., the current amount) in an account
+	* transfer an amount from one account to another
+
+The amount in the transactions is a value of type double. The accounts are identified
+by instances of the class Account that is in the package com.megabankcorp.records.
+The database class should be placed in a package called com.megabankcorp.system.
+
+The deposit, withdraw, and balance operations should not have any implementation,
+but allow subclasses to provide the implementation. The transfer operation
+should use the deposit and withdraw operations to implement the transfer.
+It should not be possible to alter this operation in any subclass, and only classes
+within the package com.megabankcorp.system should be allowed to use this operation.
+The deposit and withdraw operations should be accessible in all packages.
+The balance operation should only be accessible in subclasses and classes within
+the package com.megabankcorp.system.

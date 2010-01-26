@@ -1,0 +1,9 @@
+Create a new program with a nested class named PrintFunc that extends class
+Print from Exercise 7.2, p. 350. In addition to just printing the value, class 
+PrintFunc should first apply a Function object on the value. The class PrintFunc should
+have a constructor that takes an instance of Function type as a parameter. The
+evaluate() method of the class PrintFunc should use the Function object on its
+argument. The evaluate() method should print and return the result. The evaluate()
+method in superclass Print should be used to print the value.
+The program should behave like the one in Exercise 7.2, p. 350, but this time use
+the nested class PrintFunc instead of class Print.

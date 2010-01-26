@@ -1,0 +1,13 @@
+Declare an interface called Function that has a method named evaluate that takes
+an int parameter and returns an int value.
+
+Create a class called Half that implements the Function interface. The implementation
+of the method evaluate() should return the value obtained by dividing
+the int argument by 2.
+
+In a client, create a method that takes an arbitrary array of int values as a parameter,
+and returns an array that has the same length, but the value of an element
+in the new array is half that of the value in the corresponding element in the
+array passed as the parameter. Let the implementation of this method create an
+instance of Half, and use this instance to calculate values for the array that is
+returned.
