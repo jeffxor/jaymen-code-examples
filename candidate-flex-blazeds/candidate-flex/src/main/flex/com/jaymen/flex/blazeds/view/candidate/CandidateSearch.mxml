@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox
+	percentWidth="90" percentHeight ="100"
+	xmlns:mx="http://www.adobe.com/2006/mxml">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.jaymen.flex.business.dto.Candidate;
+			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			
+			[Bindable]		
+			public var candidate : Candidate;
+			
+			
+		 ]]>
+	</mx:Script>	
+	
+	<mx:Panel title="Search for Candidate" paddingTop="10" percentWidth="100" percentHeight ="100"> 
+      <mx:Label id="candidateNameLabel" text="Name"/>
+      <mx:Text id="candidateName" text="{candidate.name}"/>
+      <mx:Label id="candidateAddressLabel" text="Address"/>
+      <mx:Text id="candidateAddress" text="{candidate.address}"/>
+      <mx:Label id="candidateEmailLabel" text="Email"/>
+      <mx:Text id="candidateEmail" text="{candidate.email}"/>
+      <mx:Label id="candidatePhoneLabel" text="Phone"/>
+      <mx:Text id="candidatePhone" text="{candidate.phone}"/>      
+  </mx:Panel>
+</mx:VBox>
+	

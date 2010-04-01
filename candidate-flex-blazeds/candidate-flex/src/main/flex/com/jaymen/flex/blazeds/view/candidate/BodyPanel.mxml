@@ -1,0 +1,62 @@
+<mx:Panel width="100%" height="100%"
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:candidate="com.jaymen.flex.blazeds.view.candidate.*"  >
+	
+	
+	<mx:Script>
+	<![CDATA[
+		import mx.core.UIComponent;
+		import mx.controls.Alert;
+		import com.jaymen.flex.blazeds.model.locator.CandidateModelLocator;
+		import com.jaymen.flex.blazeds.event.candidate.CandidateGetAllEvent;
+		
+		[Bindable]
+		public var model : CandidateModelLocator = CandidateModelLocator.getInstance();
+		
+		public function getAllCandidates() : void 
+		{
+				model.candidateWorkFlowState = CandidateModelLocator.CANDIDATE_SEARCH_RESULTS;
+				var cgae:CandidateGetAllEvent = new CandidateGetAllEvent();
+                cgae.dispatch();				
+		}
+				
+		public function getCandidate() : void 
+		{
+				model.candidateWorkFlowState = CandidateModelLocator.SEARCH_CANDIDATE;
+				return;
+		}							
+
+		public function addCandidate() : void 
+		{
+				model.candidateWorkFlowState = CandidateModelLocator.ADD_CANDIDATE;
+				return;
+		}
+				
+		public function viewCandidate() : void 
+		{
+				model.candidateWorkFlowState = CandidateModelLocator.VIEW_CANDIDATE;
+				return;
+		}
+				
+		public function editCandidate() : void 
+		{
+				model.candidateWorkFlowState = CandidateModelLocator.EDIT_CANDIDATE;
+				return;
+		}		
+		
+	]]>
+	</mx:Script>	
+	
+	
+	
+	<mx:HBox width="100%" height="100%">
+		<candidate:CandidateViewStack model="{model}"/>
+		    <mx:Box >
+	        	<mx:Button id="findCandidate" label="Find Candidate" click="getCandidate();"/>
+	        	<mx:Button id="getAll" label="All Candidates" click="getAllCandidates();"/>
+	        	<mx:Button id="add" label="Add Candidate" click="addCandidate();"/>
+		        <mx:Button id="view" label="View Candidate" click="viewCandidate();"/>
+		      	<mx:Button id="edit" label="Edit Candidate" click="editCandidate();"/>		      			      
+	      	</mx:Box>
+      	</mx:HBox>
+</mx:Panel>

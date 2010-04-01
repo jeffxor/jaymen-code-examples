@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox
+	percentWidth="90" percentHeight ="100"
+	xmlns:mx="http://www.adobe.com/2006/mxml">
+	
+	<mx:Script>
+		<![CDATA[			
+			import mx.controls.Alert;
+			
+			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			
+			import com.jaymen.flex.business.dto.Candidate;
+			import com.jaymen.flex.blazeds.event.candidate.CandidateAddEvent;
+			import com.jaymen.flex.blazeds.model.locator.CandidateModelLocator;
+			
+			[Bindable]		
+			public var candidate : Candidate;
+			public var model : CandidateModelLocator
+			
+			public function cancel() : void 
+			{
+				model.candidateWorkFlowState = CandidateModelLocator.SEARCH_CANDIDATE;
+				return;
+			}
+			
+			public function addCandidate() : void 
+			{
+				var cgae:CandidateAddEvent = new CandidateAddEvent();
+				cgae.candidate = candidate;
+                cgae.dispatch();				
+			}			
+		 ]]>
+	</mx:Script>
+
+	<mx:Panel title="Create New Candidate" percentWidth="100" percentHeight ="100" paddingTop="10" >
+		<mx:Form width="100%" height="527">
+            <mx:FormHeading label="Fill out all required information" width="461"/>
+            
+        		<mx:FormItem label="Name">
+                    <mx:TextInput id="cName" width="200" text="{candidate.name}"/>
+                </mx:FormItem>
+            
+       			<mx:FormItem label="Address">
+                    <mx:TextInput id="address" width="200" text="{candidate.address}"/>
+                </mx:FormItem>
+                
+        		<mx:FormItem label="Email">
+                    <mx:TextInput id="email" width="200" text="{candidate.email}"/>
+                </mx:FormItem>
+                
+        		<mx:FormItem label="Phone">
+                    <mx:TextInput id="phone" width="200" text="{candidate.phone}"/>
+                </mx:FormItem>
+ 
+                <mx:HBox paddingLeft="150" paddingTop="10" width="437" height="38">
+
+                	<mx:Button label="Add" click="addCandidate();"/>
+                	<mx:Button label="Cancel" click="cancel();"/>
+        		</mx:HBox>
+        </mx:Form>
+	   
+  </mx:Panel>
+</mx:VBox>
+	

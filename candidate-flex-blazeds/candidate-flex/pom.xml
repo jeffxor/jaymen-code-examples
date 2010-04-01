@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>candidate-flex-blazeds</artifactId>
+		<groupId>com.jaymen.flex.blazeds</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<groupId>com.jaymen.flex.blazeds</groupId>
+	<artifactId>candidate-flex</artifactId>
+	<version>${project.parent.version}</version>
+	<packaging>swf</packaging>
+	<name>candidate-flex</name>
+	<url>http://maven.apache.org</url>
+	<build>
+		<sourceDirectory>src/main/flex</sourceDirectory>
+		<testSourceDirectory>src/test/flex</testSourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.sonatype.flexmojos</groupId>
+				<artifactId>flexmojos-maven-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>com.adobe.flex</groupId>
+						<artifactId>compiler</artifactId>
+						<version>${flex.sdk.version}</version>
+						<type>pom</type>
+					</dependency>
+				</dependencies>
+				<extensions>true</extensions>
+				<configuration>
+					<contextRoot>/${context.root}</contextRoot>
+					<services>${basedir}/src/main/resources/services-config.xml</services>
+					<sourceFile>../flex/CandidateApplication.mxml</sourceFile>
+					<sourcePaths>
+						<path>${basedir}/src/main/locales/{locale}</path>
+					</sourcePaths>
+					<includeResourceBundles>
+						<bundle>messages</bundle>
+					</includeResourceBundles>
+					<mergeResourceBundle>true</mergeResourceBundle>
+					<useResourceBundleMetadata>true</useResourceBundleMetadata>
+					<debug>true</debug>
+					<locales>
+						<locale>en_US</locale>
+					</locales>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>flex-framework</artifactId>
+			<version>${flex.sdk.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.cairngorm</groupId>
+			<artifactId>cairngorm-bin</artifactId>
+			<version>2.2.1</version>
+			<type>swc</type>
+		</dependency>
+
+		<!-- testing -->
+		<dependency>
+			<groupId>org.sonatype.flexmojos</groupId>
+			<artifactId>flexmojos-unittest-support</artifactId>
+			<version>${flex-mojos.version}</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

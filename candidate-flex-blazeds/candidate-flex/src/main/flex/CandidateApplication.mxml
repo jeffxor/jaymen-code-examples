@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+                xmlns:controller="com.jaymen.flex.blazeds.controller.*"
+                xmlns:candidate="com.jaymen.flex.blazeds.view.candidate.*"
+                xmlns:business="com.jaymen.flex.blazeds.business.*"                 
+                layout="horizontal">
+    <mx:Metadata>
+        [ResourceBundle("messages")] 
+    </mx:Metadata>
+    
+	<!-- the ServiceLocator where we specify the remote services -->
+	<business:Services id="services" />
+	    
+    <controller:CandidateController/>
+
+    <mx:HBox width="75%" height="75%" horizontalGap="4" horizontalAlign="center">						
+		<candidate:BodyPanel/>
+    </mx:HBox>
+	
+</mx:Application>

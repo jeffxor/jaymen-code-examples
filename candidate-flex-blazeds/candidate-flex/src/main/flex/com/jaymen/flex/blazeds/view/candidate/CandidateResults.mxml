@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox 
+	percentWidth="90" percentHeight ="100"
+	xmlns:mx="http://www.adobe.com/2006/mxml">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.jaymen.flex.blazeds.model.locator.CandidateModelLocator;
+			import mx.collections.ICollectionView;
+						
+			[Bindable]
+			public var candidates : ICollectionView;;
+					
+			public function updateSelectedItem( event : Object ) : void 
+			{							
+				CandidateModelLocator.getInstance().selectedCandidate = event.target.selectedItem;
+			}
+			
+		 ]]>
+	</mx:Script>
+	
+	<mx:Panel title="Candidate Search Results" percentWidth="100" percentHeight ="100" paddingTop="10">
+		<mx:Label x="10" y="425" id="candidateName"/>
+	    <mx:DataGrid id="candidateResultGrid" percentWidth="100" percentHeight ="100" 
+	    	dataProvider="{candidates}" change="updateSelectedItem( event )" > 
+	        <mx:columns>
+	            <mx:DataGridColumn headerText="{resourceManager.getString('messages', 'candidate.form.name')}" dataField="name"/>  
+	            <mx:DataGridColumn headerText="{resourceManager.getString('messages', 'candidate.form.address')}" dataField="address"/> 
+	            <mx:DataGridColumn headerText="{resourceManager.getString('messages', 'candidate.form.email')}" dataField="email"/>            
+	        </mx:columns>
+	    </mx:DataGrid>
+	</mx:Panel>     
+</mx:VBox>
+	

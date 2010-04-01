@@ -1,0 +1,39 @@
+<mx:ViewStack
+	xmlns:mx="http://www.adobe.com/2006/mxml"   
+	xmlns:canidateView="com.jaymen.flex.blazeds.view.candidate.*"
+	percentWidth="90" percentHeight ="100"	
+	selectedIndex="{ model.candidateWorkFlowState }" >
+
+	<mx:Script>
+		<![CDATA[
+			import com.jaymen.flex.blazeds.model.locator.CandidateModelLocator;
+			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			
+			[Bindable]
+			public var model : CandidateModelLocator = CandidateModelLocator.getInstance();
+			
+		 ]]>
+	</mx:Script>
+
+	<canidateView:CandidateResults
+		id="candidateResults" 
+		candidates="{model.candidateData}"/>
+
+	<canidateView:CandidateSearch
+		id="candidateSearch" 
+		candidate="{ model.selectedCandidate }" />
+	
+	<canidateView:CandidateAdd
+		id="candidateAdd"
+		model="{model}" />
+				
+	<canidateView:CandidateEdit
+		id="candidateEdit" 
+		candidate="{ model.selectedCandidate }"  />
+												 
+	<canidateView:CandidateView
+		id="candidateView"
+		candidate="{ model.selectedCandidate }"/>
+							  						 
+</mx:ViewStack>
